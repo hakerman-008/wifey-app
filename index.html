@@ -10,25 +10,21 @@
 </head>
 
 <body>
-  <div class="scroll-container">
-    <div class="horizontal-scroll">
-      <div class="video-container">
-        <video id="background-video" loop muted autoplay>
-          <source src="background.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="container">
-        <h1 id="video-name" class="glowing-text">Random Video of Wifey's</h1>
-        <div class="video-wrapper">
-          <video id="wifey-video" width="290" height="500" loop></video>
-        </div>
-        <div class="controls">
-          <button id="play-button" class="glowing-btn" onclick="toggleVideo()">Play Video</button>
-          <button id="next-video" class="glowing-btn" onclick="getRandomVideo()">Next Video</button>
-        </div>
-        <div id="hacker-text" class="glowing-text">Created by Kshitiz Au</div>
-      </div>
+  <div class="video-container">
+    <video id="background-video" loop muted playsinline autoplay>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
+    <h1 id="video-name" class="glowing-text">Random Video of Wifey's</h1>
+    <div class="video-wrapper">
+      <video id="wifey-video" width="290" height="500" loop playsinline></video>
     </div>
+    <div class="controls">
+      <button id="play-button" class="glowing-btn" onclick="toggleVideo()">Play Video</button>
+      <button id="next-video" class="glowing-btn" onclick="getRandomVideo()">Next Video</button>
+    </div>
+    <div id="hacker-text" class="glowing-text">Created by Kshitiz Au</div>
   </div>
   <script src="script.js"></script>
 </body>
