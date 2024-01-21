@@ -1,26 +1,18 @@
-let isVideoPaused = true;
-const videoElement = document.getElementById('wifey-video');
+let isWifeyVideoStarted = false;
+const wifeyVideoElement = document.getElementById('wifey-video');
 const backgroundVideo = document.getElementById('background-video');
 
-async function toggleVideo() {
-  const playButton = document.getElementById('play-button');
-
-  try {
-    if (isVideoPaused) {
-      await videoElement.play();
+async function startWifeyVideo() {
+  if (!isWifeyVideoStarted) {
+    try {
+      await wifeyVideoElement.play();
       backgroundVideo.pause();
-      playButton.innerText = 'Pause Video';
-    } else {
-      videoElement.pause();
-      backgroundVideo.play();
-      playButton.innerText = 'Play Video';
+    } catch (error) {
+      console.error('Wifey video playback error:', error.message);
     }
-  } catch (error) {
-    console.error('Video playback error:', error.message);
-    // Handle playback error if needed
-  }
 
-  isVideoPaused = !isVideoPaused;
+    isWifeyVideoStarted = true;
+  }
 }
 
 async function getRandomVideo() {
@@ -35,10 +27,9 @@ async function getRandomVideo() {
     });
     const content = await rawResponse.json();
 
-    videoElement.src = content.data.url;
-    videoElement.play();
-    document.getElementById('play-button').innerText = 'Pause Video';
-    isVideoPaused = false;
+    wifeyVideoElement.src = content.data.url;
+    wifeyVideoElement.play();
+    isWifeyVideoStarted = true;
   } catch (e) {
     console.error("Error fetching Shoti video", e);
   }
