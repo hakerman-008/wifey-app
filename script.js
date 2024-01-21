@@ -8,16 +8,16 @@ async function toggleVideo() {
   try {
     if (isVideoPaused) {
       await videoElement.play();
-      backgroundVideo.pause(); // Pause background video when wifey video plays
+      backgroundVideo.pause();
       playButton.innerText = 'Pause Video';
     } else {
       videoElement.pause();
-      backgroundVideo.play(); // Resume background video when wifey video pauses
+      backgroundVideo.play();
       playButton.innerText = 'Play Video';
     }
   } catch (error) {
-    // Autoplay was prevented, request user interaction
-    console.error('Autoplay was prevented. Please interact with the video to play.');
+    console.error('Video playback error:', error.message);
+    // Handle playback error if needed
   }
 
   isVideoPaused = !isVideoPaused;
