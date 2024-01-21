@@ -1,16 +1,8 @@
+/* Add this to ensure proper viewport settings */
 body {
   margin: 0;
   overflow: hidden;
   position: relative;
-}
-
-.scroll-container {
-  overflow: auto; /* Enable both vertical and horizontal scrolling */
-  height: 100vh; /* Adjust the height as needed */
-}
-
-.horizontal-scroll {
-  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 .container {
@@ -30,9 +22,13 @@ body {
 }
 
 #background-video {
-  width: 100vw; /* Adjust width to cover the entire viewport */
-  height: 100vh; /* Adjust height to cover the entire viewport */
+  width: 110%;
+  height: 110%;
   object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .video-wrapper {
@@ -42,6 +38,7 @@ body {
   margin: 0 auto;
   border: 5px solid #ffffff;
   box-shadow: 0 0 20px #ffffff;
+  overflow: hidden;
 }
 
 #wifey-video {
